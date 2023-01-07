@@ -26,7 +26,7 @@ CREATE TABLE "public.films" (
 	"id" serial NOT NULL,
 	"title" VARCHAR(255) NOT NULL,
 	"image" BINARY NOT NULL,
-	"genre" BINARY NOT NULL,
+	"genre" varchar(255) NOT NULL,
 	"year" varchar(255) NOT NULL,
 	"language" varchar(255) NOT NULL,
 	"country" varchar(255) NOT NULL,
