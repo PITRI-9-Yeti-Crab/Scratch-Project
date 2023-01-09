@@ -1,16 +1,16 @@
-const express = require('express')
-const router = express.Router(); 
+const express = require("express");
+const router = express.Router();
 
-const filmListController = require('../controllers/listController');
+const filmListController = require("../controllers/listController");
 
-router.get('/', filmListController.getList)
+router.get("/", filmListController.getList);
 
-route.post('/', filmListController.createList)
+router.post("/", filmListController.createList);
 
-route.delete('/', filmListController.deleteList)
+router.delete("/", filmListController.deleteList);
 
-route.patch('/', filmListController.updateList)
+router.patch("/", filmListController.updateList);
 
-route.post('/share', filmListController.shareList)
+router.post("/share", filmListController.shareList);
 
-module.exports = router
+module.exports = router;
