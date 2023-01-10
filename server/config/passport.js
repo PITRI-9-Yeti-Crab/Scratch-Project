@@ -44,18 +44,18 @@ passport.use('local', new LocalStrategy({
           }, verifyCallback))
 
 //create google oauth2 stratgey 
-passport.use('google',
-    new GoogleStrategy({
-        // options for google strategy
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
-        callbackURL: '/user/google/redirect'
-    }, (accessToken, refreshToken, profile, done) => {
-        // passport callback function
-        console.log('passport callback function fired:');
-        console.log(profile);
-    })
-);
+// passport.use('google',
+//     new GoogleStrategy({
+//         // options for google strategy
+//         clientID: process.env.GOOGLE_CLIENT_ID,
+//         clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
+//         callbackURL: '/user/google/redirect'
+//     }, (accessToken, refreshToken, profile, done) => {
+//         // passport callback function
+//         console.log('passport callback function fired:');
+//         console.log(profile);
+//     })
+// );
 // To be finished ....
 passport.serializeUser(function(user, cb) {
     process.nextTick(function() {
