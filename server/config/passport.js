@@ -1,8 +1,14 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
+<<<<<<< HEAD
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 var express = require('express');
 const bcrypt = require("bcryptjs"); 
+=======
+var express = require('express');
+const bcrypt = require("bcryptjs"); 
+
+>>>>>>> Pengbo/local-strategy
 const db = require('../models/movieModel'); 
 
 

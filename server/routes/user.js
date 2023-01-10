@@ -3,8 +3,13 @@ const router = express.Router();
 const userController = require("../controllers/userController")();
 const passport = require("passport"); 
 
-router.post("/login", passport.authenticate('local'), (req, res)=> {
-    res.json(req.user); 
+router.get('/login', (req, res)=> {
+    res.render('login'); 
+})
+
+router.post("/login", passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }), (req, res)=> {
+    //res.json(req.user); 
+    res.redirect('/') //==> redirect to profile page or homepage
 });
 
 // signup route
