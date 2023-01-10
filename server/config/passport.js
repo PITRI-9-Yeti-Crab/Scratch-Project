@@ -3,7 +3,6 @@ var LocalStrategy = require('passport-local');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 var express = require('express');
 const bcrypt = require("bcryptjs"); 
-
 const db = require('../models/movieModel'); 
 
 
@@ -37,6 +36,22 @@ const verifyCallback = async (email, password, done) => {
 
 }
 
+const googleCallback = async (accessToken, refreshToken, profile, done)=> {
+    try {
+           const user = await emailExists(profile.email);
+            //if user exists ---return user 
+           if (user) return done(null, user);
+           else {
+            
+           }
+              const isMatch = await verifyUser(password, user.password);
+              if (!isMatch) return done(null, false); 
+              return done(null, {id: user.id, email: user.email});
+            } catch (error) {
+              return done(error, false);
+         }
+}
+
 //create new local strategy 
 passport.use('local', new LocalStrategy({
             usernameField: "email",
@@ -44,18 +59,19 @@ passport.use('local', new LocalStrategy({
           }, verifyCallback))
 
 //create google oauth2 stratgey 
-// passport.use('google',
-//     new GoogleStrategy({
-//         // options for google strategy
-//         clientID: process.env.GOOGLE_CLIENT_ID,
-//         clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
-//         callbackURL: '/user/google/redirect'
-//     }, (accessToken, refreshToken, profile, done) => {
-//         // passport callback function
-//         console.log('passport callback function fired:');
-//         console.log(profile);
-//     })
-// );
+passport.use('google',
+    new GoogleStrategy({
+        // options for google strategy
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
+        callbackURL: '/user/google/redirect'
+    }, (accessToken, refreshToken, profile, done) => {
+        // passport callback function
+        console.log('passport callback function fired:');
+        console.log(profile);
+    })
+);
+
 // To be finished ....
 passport.serializeUser(function(user, cb) {
     process.nextTick(function() {

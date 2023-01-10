@@ -7,8 +7,8 @@ const userController = (db = getDatabaseService()) => {
     async signup(req, res, next) {
       try {
         const { email, password } = req.body;
-        const userId = await db.createUser(email, password);
-        res.locals.userId = userId;
+        const user = await db.createUser(email, password);
+        res.locals.userId = user;
         return next();
       } catch (err) {
         return next(err);
