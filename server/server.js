@@ -8,6 +8,12 @@ const userRoutes = require("./routes/user");
 const app = express();
 app.use(express.json());
 
+//
+require('./controllers/passport');
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 //routes
 // app.use("/list", listRoutes);
 app.use("/user", userRoutes);
