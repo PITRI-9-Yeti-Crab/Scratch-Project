@@ -1,15 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const filmListController = require("../controllers/listController")();
+const filmListController = require("../controllers/listController");
 
-router.get("/", filmListController.getList);
+// router.get("/", filmListController.getListNames, (req, res) => {
+//   res.status(200).json(res.locals.listNames);
+// });
 
-router.post("/", filmListController.createList);
+// router.get("/details", filmListController.getListDetails, (req, res) => {
+//   res.status(200).json(res.locals.filmListDetails);
+// });
 
-router.delete("/", filmListController.deleteList);
+router.post("/", filmListController.createList, (req, res) => {
+  res.status(200).json(res.locals.filmListDetails);
+});
 
-router.patch("/", filmListController.updateList);
+// router.delete("/", filmListController.deleteList, (req, res) => {
+//   res.status(200).json(res.locals.filmListId);
+// });
 
-router.post("/share", filmListController.shareList);
+router.patch("/", filmListController.updateList, (req, res) => {});
+
+router.post("/share", filmListController.shareList, (req, res) => {});
 
 module.exports = router;
