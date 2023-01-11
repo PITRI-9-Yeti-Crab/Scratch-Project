@@ -1,7 +1,9 @@
 // mock db for testing
-const mockDb = {
-  createUser: jest.fn(),
-  getUser: jest.fn(),
-};
+// const jest = require('jest'); 
 
-module.exports = mockDb;
+// const mockDb = {
+//   createUser: jest.fn(),
+//   getUser: jest.fn(),
+// };
+
+// module.exports = mockDb;
