@@ -21,7 +21,7 @@ module.exports = {
     hot: true,
     proxy: {
       //   "/workouts": "http://localhost:3000",
-      //   "/login/*": "http://localhost:3000",
+      "/user": "http://localhost:3000",
       //   "/logout": "http://localhost:3000",
     },
   },
