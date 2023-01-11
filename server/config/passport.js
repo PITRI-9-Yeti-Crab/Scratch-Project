@@ -66,7 +66,8 @@ passport.use('google',
         // options for google strategy
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
-        callbackURL: '/user/google/redirect'
+        callbackURL: '/user/google/redirect', 
+        passReqToCallback: true
     }, googleCallback
     )
 );

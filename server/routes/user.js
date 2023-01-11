@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/userController")();
+const userController = require("../controllers/userController");
 const passport = require("passport"); 
+const cors = require("cors"); 
+
 
 router.get('/login', (req, res)=> {
     res.render('login'); 
@@ -22,8 +24,8 @@ router.get('/logout', (req, res, next)=> {
 })
 
 // auth with google+
-router.get('/google', passport.authenticate('google', {
-    scope: ['profile']
+router.get('/google', cors(), passport.authenticate('google', {
+    scope: ['email', 'profile']
 }));
 
 // callback route for google to redirect
