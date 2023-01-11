@@ -1,14 +1,9 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
-<<<<<<< HEAD
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 var express = require('express');
 const bcrypt = require("bcryptjs"); 
-=======
-var express = require('express');
-const bcrypt = require("bcryptjs"); 
 
->>>>>>> Pengbo/local-strategy
 const db = require('../models/movieModel'); 
 
 
@@ -29,7 +24,7 @@ const emailExists = async (email) => {
 
 //callback function for local strategy 
 
-const verifyCallback = async (email, password, done) => {
+const localCallback = async (email, password, done) => {
     try {
           const user = await emailExists(email);
           if (!user) return done(null, false);
@@ -48,12 +43,13 @@ const googleCallback = async (accessToken, refreshToken, profile, done)=> {
             //if user exists ---return user 
            if (user) return done(null, user);
            else {
-            
+            //if user does not exist 
+            const userData = await db.query("INSERT INTO users(googleId, email) VALUES ($1, $2) RETURNING *",
+           [profile.id, profile.email])
+            done(null, userData.rows[0]); 
            }
-              const isMatch = await verifyUser(password, user.password);
-              if (!isMatch) return done(null, false); 
-              return done(null, {id: user.id, email: user.email});
-            } catch (error) {
+              
+          } catch (error) {
               return done(error, false);
          }
 }
@@ -62,7 +58,7 @@ const googleCallback = async (accessToken, refreshToken, profile, done)=> {
 passport.use('local', new LocalStrategy({
             usernameField: "email",
             passwordField: "password",
-          }, verifyCallback))
+          }, localCallback))
 
 //create google oauth2 stratgey 
 passport.use('google',
@@ -71,11 +67,8 @@ passport.use('google',
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
         callbackURL: '/user/google/redirect'
-    }, (accessToken, refreshToken, profile, done) => {
-        // passport callback function
-        console.log('passport callback function fired:');
-        console.log(profile);
-    })
+    }, googleCallback
+    )
 );
 
 // To be finished ....
@@ -86,7 +79,7 @@ passport.serializeUser(function(user, cb) {
     });
     
 passport.deserializeUser(function(id, cb) {
-db.query('SELECT * FROM users WHERE id = $1', [ id ], function(err, user) {
+    db.query('SELECT * FROM users WHERE id = $1', [ id ], function(err, user) {
     if (err) { return cb(err); }
     return cb(null, user.rows[0]);
 });

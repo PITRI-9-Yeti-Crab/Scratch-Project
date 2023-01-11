@@ -13,6 +13,14 @@ app.use(express.json());
 //
 require('./config/passport');
 
+//configure express session
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false, maxAge: 10 * 24* 60 * 60 }
+  }))
+
 app.use(passport.initialize());
 app.use(passport.session());
 
