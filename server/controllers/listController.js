@@ -66,7 +66,7 @@ const listController = {
       const values = [req.user.id, req.body.listName];
       const queryCreateList =
         "INSERT INTO film_lists (creator_id, film_list_name) VALUES ($1, $2) RETURNING id, film_list_name";
-      const filmListName = await db.query(queryCreateList);
+      const filmListName = await db.query(queryCreateList, values);
       res.locals.filmListName = filmListName.rows[0];
       return next();
     } catch (err) {
