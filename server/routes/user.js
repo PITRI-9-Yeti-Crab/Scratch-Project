@@ -14,7 +14,10 @@ router.post(
     failureRedirect: "user/login/failure",
     failureMessage: true,
     //successRedirect: "user/login/success"
-  })
+  }), 
+  (req, res) => {
+    res.send("login success!");
+  }
 );
 // //rediret if login succeeds 
 
