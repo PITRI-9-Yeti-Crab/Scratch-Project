@@ -11,17 +11,22 @@ router.get("/login", (req, res) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    failureRedirect: "/login",
+    failureRedirect: "user/login/failure",
     failureMessage: true,
-  }),
-  (req, res) => {
-    //res.json(req.user);
-    res.redirect("/"); //==> redirect to profile page or homepage
-  }
+    //successRedirect: "user/login/success"
+  })
 );
+// //rediret if login succeeds 
+
+// router.get("login/success",(req, res) => {
+//   console.log("login success", req.user);
+//   res.status(200).json({ user: req.user });
+// }) 
 
 // signup route
-router.post("/signup", userController.signup);
+router.post("/signup", userController.signup, (req, res)=> {
+  res.json(res.locals.user)
+});
 
 //log user out
 router.get("/logout", (req, res, next) => {
