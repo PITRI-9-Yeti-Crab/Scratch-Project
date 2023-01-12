@@ -1,9 +1,8 @@
 CREATE TABLE public.users (
-	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
 	"id" serial NOT NULL,
-	"googleId" varchar(255) NOT NULL,
+	"googleId" varchar(255),
 	"password" VARCHAR(255) NOT NULL,
-	"email" VARCHAR(255) NOT NULL,
 	CONSTRAINT "users_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -31,12 +30,12 @@ CREATE TABLE public.films (
 	"api_id" varchar(255) NOT NULL,
 	"title" varchar(255) NOT NULL,
 	"image" text NOT NULL,
-	"genre" varchar(255) NOT NULL,
-	"year" varchar(255) NOT NULL,
-	"language" varchar(255) NOT NULL,
-	"country" varchar(255) NOT NULL,
-	"director" varchar(255) NOT NULL,
-	"actors" varchar(255) NOT NULL,
+	"genre" varchar(255),
+	"year" varchar(255),
+	"language" varchar(255),
+	"country" varchar(255),
+	"director" varchar(255),
+	"actors" varchar(255),
 	CONSTRAINT "films_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
