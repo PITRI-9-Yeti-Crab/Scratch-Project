@@ -14,7 +14,7 @@ import './components.css'
 function Dash() {
 
     const [ textInput, setTextInput ] = useState("");
-    const [ apiResults, setApiResults ] = useState([])
+    const [ apiResults, setApiResults ] = useState([]);
 
     // text handler - catches what's typed
     const textInputHandler = (e) => {
@@ -36,28 +36,33 @@ function Dash() {
             }
         };
 
-
         axios.request(options).then(function (response) {
             const results = response.data.results;
             console.log(results);
 
-            results.forEach(el => {
-                if(el.title) apiResults.push(el.title);
+            const filteredResults = results.filter(movie => movie.title && movie.image)
 
-            });
+            setApiResults(filteredResults)
+
+            // results.forEach(el => {
+            //     if(el.title) apiResults.push(el.title);
+
+            // });
             console.log('apiResults:',apiResults);
-            // setApiResults([])
 
         }).catch(function (error) {
             console.error(error);
         });
 
         // useEffect to return.... somethign
-
         
         setTextInput("");
+        // setApiResults([]);
     }
 
+    // useEffect(() => {
+    //     return console.log("from useEffect:", apiResults)
+    // }, [apiResults])
 
     // show list of search results
         // add search results to state
@@ -68,6 +73,7 @@ function Dash() {
         // view details
         // add to list
 
+    
 
   return (
     <>
@@ -91,18 +97,19 @@ function Dash() {
 
     <div>
 
-    {/* {apiResults.map( ({title}) => {
-
-        return (
-            <ResultsList
-                title={ title }
-            />
+    {apiResults.map( ({title, year, image:{url}}) => {
+        // if (image.url) {
+        //     const imageLink = image.url
+            return (
+                <ResultsList
+                    title={ title }
+                    year = { year }
+                    image = {url}
+                />
             )
         }
-    )} */}
-    Hello!
-    {apiResults}
-
+    // }
+    )}
     </div>
 
     </>
