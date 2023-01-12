@@ -1,0 +1,5 @@
+.ResultBox {
+  display: flex;
+  min-width: 90%;
+  border: 2px solid purple;
+}

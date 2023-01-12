@@ -42,27 +42,18 @@ function Dash() {
 
             const filteredResults = results.filter(movie => movie.title && movie.image)
 
+            // must use setState to, well, set the state
             setApiResults(filteredResults)
 
-            // results.forEach(el => {
-            //     if(el.title) apiResults.push(el.title);
-
-            // });
             console.log('apiResults:',apiResults);
 
         }).catch(function (error) {
             console.error(error);
         });
-
-        // useEffect to return.... somethign
         
         setTextInput("");
         // setApiResults([]);
     }
-
-    // useEffect(() => {
-    //     return console.log("from useEffect:", apiResults)
-    // }, [apiResults])
 
     // show list of search results
         // add search results to state
@@ -97,19 +88,8 @@ function Dash() {
 
     <div>
 
-    {apiResults.map( ({title, year, image:{url}}) => {
-        // if (image.url) {
-        //     const imageLink = image.url
-            return (
-                <ResultsList
-                    title={ title }
-                    year = { year }
-                    image = {url}
-                />
-            )
-        }
-    // }
-    )}
+    <ResultsList results={apiResults}/>
+
     </div>
 
     </>
