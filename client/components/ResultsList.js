@@ -1,16 +1,15 @@
 import React from 'react';
+import BasicResult from './BasicResult'
 
-
-function ResultsList({ title, year, image }) {
-
+function ResultsList(props) {
 
   return (
   <>
-  {/* <h2>Ayyyy Results List Over Here</h2> */}
-
-  <p> {title} </p>
-  <p> {year} </p>
-  <img src={image} width="200px" height="200px" />
+    {props.results.map(basicFilmData => <BasicResult
+      title = {basicFilmData.title}
+      year = {basicFilmData.year}
+      image={basicFilmData.image.url}>
+    </BasicResult>)}
   </>
   )
 }
