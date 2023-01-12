@@ -22,8 +22,6 @@ router.post("/", filmListController.createList, (req, res) => {
 //   res.status(200).json(res.locals.filmListId);
 // });
 
-router.patch("/", filmListController.updateList, (req, res) => {});
-
 router.post("/share", filmListController.shareList, (req, res) => {
   res.status(200).send("List successfully shared");
 });
