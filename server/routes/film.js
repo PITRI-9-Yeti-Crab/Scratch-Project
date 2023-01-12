@@ -21,3 +21,5 @@ router.put("/comments", filmController.updateComment, (req, res) => {
 router.delete("/comments", filmController.deleteComment, (req, res) => {
   res.status(200).send("Comment successfully deleted");
 });
+
+module.exports = router;
