@@ -41,11 +41,26 @@ function Dash() {
             console.log(results);
 
             const filteredResults = results.filter(movie => movie.title && movie.image)
+            
+            // expirimental
+            const trimmedResults = [];
 
+            for (let i=0; i<filteredResults.length; i++) {
+                trimmedResults.push({});
+                trimmedResults[i] = {
+                    title: filteredResults[i].title,
+                    api_id: filteredResults[i].id.slice(7),
+                    year: filteredResults[i].year,
+                    image: filteredResults[i].image.url
+                }
+            }
+            console.log('trimmedResults:', trimmedResults)
+            // expirimental
             // must use setState to, well, set the state
             setApiResults(filteredResults)
 
-            console.log('apiResults:',apiResults);
+            console.log('filteredResults:',filteredResults);
+            
 
         }).catch(function (error) {
             console.error(error);
