@@ -5,6 +5,7 @@ const filmController = {
   //add a film to list (default list)
   //future todo: enable user to create multiple lists
   async addFilmToList(req, res, next) {
+    console.log(req.body);
     try {
       const {
         api_id,
@@ -16,10 +17,10 @@ const filmController = {
         country,
         director,
         actors,
-      } = req.body.film;
+      } = req.body;
       //each user has a default list: list id is user.id + 100
-      const listId = req.user.id + 100;
-
+      const listId = 1;
+      // req.user.id + 100;
       const values = [
         api_id,
         title,
