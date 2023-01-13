@@ -7,12 +7,7 @@ router.post("/", filmController.addFilmToList, (req, res) => {
   res.status(200).json(res.locals.newFilm);
 });
 
-// post comments
-router.post("/comments", filmController.addCommentToFilm, (req, res) => {
-  res.status(200).json(res.locals.newComment);
-});
-
-// update comments
+// add/update comments
 router.put("/comments", filmController.updateComment, (req, res) => {
   res.status(200).json(res.locals.updatedComment);
 });

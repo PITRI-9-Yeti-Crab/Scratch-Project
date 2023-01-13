@@ -28,7 +28,7 @@ const listController = {
       // query shared lists (not owned)
       const querySharedLists =
         "SELECT id, film_list_name FROM film_lists WHERE id IN (SELECT film_list_id FROM shared_film_lists WHERE user_id = $1) ORDER BY film_list_name";
-      const sharedLists = await db.query(querySharedLists, values);
+      const sharedLists = await db.query(querySharedLists, [values]);
       res.locals.sharedLists = sharedLists.rows;
 
       return next();
@@ -47,8 +47,8 @@ const listController = {
       // query created film list details
       const queryFilmList =
         "SELECT id, title, image FROM films WHERE id IN (SELECT film_id FROM films_in_lists WHERE film_list_id = $1) ORDER BY title";
-      res.locals.filmListDetails = await db.query(queryFilmList, values).rows;
-
+      const filmListDetails = await db.query(queryFilmList, values);
+      res.locals.filmListDetails = filmListDetails.rows;
       return next();
     } catch (err) {
       return next({
@@ -61,7 +61,6 @@ const listController = {
   async createList(req, res, next) {
     try {
       console.log("inside create list controller");
-      // const values = [1];
       // query created film list details
       const values = [req.user.id, req.body.listName];
       const queryCreateList =
