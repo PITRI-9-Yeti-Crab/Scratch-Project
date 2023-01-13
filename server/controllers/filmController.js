@@ -37,9 +37,12 @@ const filmController = {
 
       //query to insert newly added film to films_in_lists table
       const queryInsertToFilmsinLists =
-      "INSERT INTO films_in_lists (film_id, film_list_id) SELECT $1 AS film_id, $2 AS film_list_id WHERE NOT EXISTS (SELECT film_id FROM films_in_lists WHERE film_id = $1 AND film_list_id = $2)"
-      await db.query(queryInsertToFilmsinLists, [film.rows[0].id, req.query.listId]);
-      
+        "INSERT INTO films_in_lists (film_id, film_list_id) SELECT $1 AS film_id, $2 AS film_list_id WHERE NOT EXISTS (SELECT film_id FROM films_in_lists WHERE film_id = $1 AND film_list_id = $2)";
+      await db.query(queryInsertToFilmsinLists, [
+        film.rows[0].id,
+        req.query.listId,
+      ]);
+
       res.locals.newFilm = film.rows[0];
 
       return next();
