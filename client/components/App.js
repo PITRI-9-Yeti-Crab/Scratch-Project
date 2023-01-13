@@ -1,6 +1,5 @@
 
 import React from "react";
-import Login from "./Login";
 import Home from "./Home";
 import Dash from "./Dash";
 import NotFound from "./NotFound";
@@ -15,7 +14,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login />} />
         <Route path="dash" element={<Dash />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
