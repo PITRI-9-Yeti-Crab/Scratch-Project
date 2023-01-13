@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './Header';
-import Login from './Login';
+import Login from './UserLogin';
 import ModalDemo from './ModalDemo';
 import ResultsList from './ResultsList';
 
@@ -41,7 +41,7 @@ function Dash() {
             console.log(results);
 
             const filteredResults = results.filter(movie => movie.title && movie.image)
-            
+
             // expirimental
             const trimmedResults = [];
 
@@ -60,12 +60,12 @@ function Dash() {
             setApiResults(filteredResults)
 
             console.log('filteredResults:',filteredResults);
-            
+
 
         }).catch(function (error) {
             console.error(error);
         });
-        
+
         setTextInput("");
         // setApiResults([]);
     }
@@ -79,7 +79,7 @@ function Dash() {
         // view details
         // add to list
 
-    
+
 
   return (
     <>

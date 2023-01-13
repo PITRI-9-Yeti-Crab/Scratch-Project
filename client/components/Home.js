@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import Login from './Login';
+import Login from './UserLogin';
 import ModalDemo from './ModalDemo';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -17,8 +17,9 @@ function Home() {
 
 
 
-    <Login />
+    <UserLogin />
 
+    <UserSignup />
 
     <ModalDemo />
 
