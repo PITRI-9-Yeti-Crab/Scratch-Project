@@ -1,3 +1,18 @@
 h1 {
   color: red;
 }
+
+h4 {
+  /* background-color: #212529; */
+  /* color: #fff; */
+  width: 100%;
+}
+.signup-form {
+  margin: 10% auto;
+  width:300px;
+}
+
+.login-form {
+  margin: 10% auto;
+  width:300px;
+}

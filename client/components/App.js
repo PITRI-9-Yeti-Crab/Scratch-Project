@@ -1,5 +1,6 @@
-
 import React from "react";
+import UserLogin from "./UserLogin";
+import UserSignup from "./UserSignup";
 import Home from "./Home";
 import Dash from "./Dash";
 import NotFound from "./NotFound";
@@ -14,6 +15,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="signup" element={<UserSignup />} />
+        <Route path="login" element={<UserLogin/>} />
         <Route path="dash" element={<Dash />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
