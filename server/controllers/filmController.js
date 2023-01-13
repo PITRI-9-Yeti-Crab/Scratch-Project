@@ -37,7 +37,7 @@ const filmController = {
 
       //query to insert newly added film to films_in_lists table
       const queryInsertToFilmsinLists =
-        "INSERT INTO films_in_lists (film_id, film_list_id) VALUES ($1, $2)";
+        "INSERT INTO films_in_lists (film_id, film_list_id) SELECT $1 AS film_id, $2 AS film_list_id WHERE NOT EXISTS (SELECT film_id FROM films_in_lists WHERE film_id = $1 AND film_list_id = $2)";
       await db.query(queryInsertToFilmsinLists, [film.id, req.query.listId]);
       res.locals.newFilm = film.rows[0];
 
@@ -46,25 +46,6 @@ const filmController = {
       return next({
         log: `filmController.addFilmToList: ${err}`,
         message: { err: "Failed to add film" },
-      });
-    }
-  },
-
-  // comment on a film (that is already on one's list)
-  async addCommentToFilm(req, res, next) {
-    try {
-      const values = [req.body.comment, req.query.listId, req.query.filmId];
-      const queryAddComment =
-        "INSERT INTO films_in_lists (comment) VALUES ($1) WHERE film_id = $3 AND film_list_id = $2 RETURNING comment";
-
-      const newComment = await db.query(queryAddComment, values);
-      res.locals.newComment = newComment.rows[0];
-
-      return next();
-    } catch (err) {
-      return next({
-        log: `filmController.commentOnFilm: ${err}`,
-        message: { err: "Failed to add comment" },
       });
     }
   },

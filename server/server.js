@@ -8,6 +8,7 @@ require("./config/passport");
 const userRoutes = require("./routes/user");
 const listRoutes = require("./routes/filmList");
 const filmRoutes = require("./routes/film");
+const friendRoutes = require("./routes/friend");
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use(passport.session());
 app.use("/list", listRoutes);
 app.use("/user", userRoutes);
 app.use("/film", filmRoutes);
+app.use("/friend", friendRoutes);
 
 // global error handling
 app.use((err, req, res, next) => {
