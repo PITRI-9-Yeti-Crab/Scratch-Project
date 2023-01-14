@@ -16,13 +16,14 @@ function Home() {
 
     <h1>HOME!!</h1>
 
-
+      <p>A page with Public Info about MEDIA CLAW</p>
 
     <UserLogin />
 
     <UserSignup />
 
     <ModalDemo />
+
 
     </>
   )

@@ -16,17 +16,15 @@ function Header() {
 
 <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">Screen Scuttle</Navbar.Brand>
+        <Navbar.Brand href="#home">Media Claw</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <Nav.Link href="/dash">Dash (remove link)</Nav.Link>
+            <NavDropdown title="About" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">About the Project</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Technologies Used</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Major Challenges</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link

@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
-import './components.css';
-import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import FilmInfoModal from './FilmInfoModal';
+import Button from 'react-bootstrap/Button';
 
-function BasicResult(props) {
+import Modal_MoreInfo from './Modal_MoreInfo';
+
+import './components.css';
+
+function ResultsListItem(props) {
   const [ filmInfo, setFilmInfo ] = useState({});
   const filmRef = useRef();
 
@@ -49,7 +51,7 @@ function BasicResult(props) {
         'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
       }
     };
-    
+
     axios.request(genreOptions).then(function (response) {
       console.log(response.data);
       detailResults.genre = response.data.genres;
@@ -68,7 +70,7 @@ function BasicResult(props) {
         'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
       }
     };
-    
+
     axios.request(directorOptions).then(function (response) {
       console.log(response.data);
       detailResults.director = response.data.crew.director[0].name;
@@ -80,16 +82,16 @@ function BasicResult(props) {
 
   return (
     <>
-      <div className='ResultBox'>
-        <img src={props.image} width="200px" height="200px" />
+      <div className='ResultsBox'>
+        <img className="ResultsImage" src={props.image}  />
         <p> {props.title} </p>
         <p> {props.year} </p>
-        <Button className="ResultListButton" onClick={moreInfoHandler}>More Info</Button>
-        <Button className="ResultListButton" onClick={addToListHandler}>Add to list</Button>
-        <FilmInfoModal onClick={moreInfoHandler}></FilmInfoModal>
+
+        <Button className="ResultsListButton" onClick={addToListHandler}>Add to list</Button>
+
       </div>
     </>
   )
 }
 
-export default BasicResult;
+export default ResultsListItem;
