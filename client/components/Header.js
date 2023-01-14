@@ -28,12 +28,12 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="About" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">About the Project</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Technologies Used</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Major Challenges</NavDropdown.Item>
+              <NavDropdown.Item href="about">About Media Claw</NavDropdown.Item>
+              <NavDropdown.Item href="about-problem">What's the Problem?</NavDropdown.Item>
+              <NavDropdown.Item href="about-tech">Technologies & Challenges</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+              <NavDropdown.Item href="dev">
+                Secret Link, Don't Look
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
