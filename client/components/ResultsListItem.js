@@ -34,60 +34,28 @@ function ResultsListItem(props) {
   const addToListHandler = (e) => {
     axios.post('http://localhost:3000/film', dataToServer)
     .then(response => {
-      console.log(response.data)
+      console.log(response.data);
+      props.updateMovies()
     })
+    // .then (response => props.updateMovies())
     .catch(function (error){
       console.log(error)
     })
-  }
-
-  const moreInfoHandler = (e) => {
-    const genreOptions = {
-      method: 'GET',
-      url: 'https://online-movie-database.p.rapidapi.com/title/get-overview-details',
-      params: {tconst: props.imdbID, currentCountry: 'US'},
-      headers: {
-        'X-RapidAPI-Key': '254a2ed010msh9089e065fc76542p1ab1cfjsn91b42fac04d9',
-        'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
-      }
-    };
-
-    axios.request(genreOptions).then(function (response) {
-      console.log(response.data);
-      detailResults.genre = response.data.genres;
-      console.log('detailResultsWithGenres:', detailResults)
-
-    }).catch(function (error) {
-      console.error(error);
-    });
-
-    const directorOptions = {
-      method: 'GET',
-      url: 'https://online-movie-database.p.rapidapi.com/title/get-full-credits',
-      params: {tconst: props.imdbID},
-      headers: {
-        'X-RapidAPI-Key': '254a2ed010msh9089e065fc76542p1ab1cfjsn91b42fac04d9',
-        'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
-      }
-    };
-
-    axios.request(directorOptions).then(function (response) {
-      console.log(response.data);
-      detailResults.director = response.data.crew.director[0].name;
-      console.log('detailResultsWithDirector:', detailResults)
-    }).catch(function (error) {
-      console.error(error);
-    });
   }
 
   return (
     <>
       <div className='ResultsBox'>
         <img className="ResultsImage" src={props.image}  />
-        <p> {props.title} </p>
+        <div className='MovieListBasics'>
+          <h3>{props.title}</h3>
+          <h6>{props.year}</h6>
+          <Button className="ResultsListButton" onClick={addToListHandler}>Add to list</Button>
+        </div>
+        {/* <p> {props.title} </p>
         <p> {props.year} </p>
 
-        <Button className="ResultsListButton" onClick={addToListHandler}>Add to list</Button>
+        <Button className="ResultsListButton" onClick={addToListHandler}>Add to list</Button> */}
 
       </div>
     </>

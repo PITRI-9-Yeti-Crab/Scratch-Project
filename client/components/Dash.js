@@ -20,12 +20,14 @@ function Dash() {
     const [ movieList, setMovieList ] = useState([]);
 
     // text handler - catches what's typed
+    // NOT USED HERE
     const textInputHandler = (e) => {
         setTextInput(e.target.value);
         console.log(e.target.value)
     }
 
     // submit handler - currently returns 20 results
+    // NOT USED HERE
     const submitHandler = (e) => {
         setTextInput("");
 
@@ -73,8 +75,30 @@ function Dash() {
         // setApiResults([]);
     }
 
-    function getMovies() {
+    // renders film list on site load
+    useEffect(() => {
+        function getMovies() {
+            const getListOptions = {
+                method: 'GET',
+                url: 'http://localhost:3000/list/details',
+                params: {listId: 1}
+            }
 
+            axios.request(getListOptions)
+            .then(function (response) {
+                console.log('response:', response.data);
+                setMovieList(response.data);
+            })
+            .catch(function (error) {
+                console.error(error);
+            })
+        }
+        getMovies()
+    }, [])
+
+    // updates film list on add to list in search modal
+    // uses movieList state declared here
+    function updateMovieList () {
         const getListOptions = {
             method: 'GET',
             url: 'http://localhost:3000/list/details',
@@ -92,7 +116,6 @@ function Dash() {
     }
 
 
-
   return (
     <>
 
@@ -100,9 +123,7 @@ function Dash() {
     <main>
     <h1>DASHBOARD!!</h1>
 
-    <Modal_APISearch />
-
-    <Button onClick={getMovies}>Get Your Movies</Button>
+    <Modal_APISearch updateMovies={updateMovieList} dialogClassName="search-modal" />
 
     <hr />
 
