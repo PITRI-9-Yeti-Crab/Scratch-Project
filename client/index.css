@@ -22,7 +22,7 @@ main {
 }
 
 
-h1,
+h1,h2,h3,
 .navbar-brand {
   color: #F55C47;
   font-family: Bangers, Arial, Helvetica, sans-serif;
@@ -30,11 +30,19 @@ h1,
 
 .navbar-brand {
   font-size: 2.5em;
-
 }
+.navbar-brand img {
+  margin-right: 8px;
+}
+
 h1 {
   font-size: 4em;
 }
+
+h2 {
+  font-size: 3em;
+}
+
 
 h4 {
   /* background-color: #212529; */
@@ -71,6 +79,3 @@ h4 {
   width: 100%;
   text-align: right;
 }
-
-
-

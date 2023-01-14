@@ -14,9 +14,12 @@ function Modal_Login() {
 
   return (
     <>
-      <Button variant="primary btn-lg" onClick={handleShow}>
-        Login!!
-      </Button>
+    <span className="login-button-box">
+        <Button variant="primary btn-lg" className="login-button" onClick={handleShow}>
+            Login!!
+        </Button>
+    </span>
+
 
       <Modal
         show={show}
