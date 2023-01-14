@@ -40,6 +40,8 @@ function AboutTech() {
 
     <ul>
         <li>PostgreSQL gets <code>angry</code> about camelCase—<i>USE UNDERSCORES!!</i></li>
+        <li>Passport only serializes users, but <i>REFUSES to DE-serialize!!</i></li>
+        <li><i>BAAAAAD DOOOOOCS!!</i></li>
         <li>Keeping track of props and state in a flurry of components. <i>SO MANY!!</i></li>
         <li>We were mostly good with GitHub, <i>UNTIL WE WEREN'T!!</i></li>
         <li>Scope!! We have no sharing or social features, and that is <i>OKAY!!</i></li>
