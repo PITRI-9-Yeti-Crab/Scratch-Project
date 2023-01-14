@@ -18,14 +18,15 @@ function ResultsList(props) {
   return (
   <>
 
-  <h3>Results List (inside component)</h3>
+  <h3>Search Results</h3>
 
     {props.results.map(basicFilmData => <ResultsListItem
       title = {basicFilmData.title}
       year = {basicFilmData.year}
       image={basicFilmData.image.url}
       imdbID={basicFilmData.id.slice(7)}
-      actors = {basicFilmData.principals}>
+      actors = {basicFilmData.principals}
+      updateMovies={props.updateMovies}>
     </ResultsListItem>)}
   </>
   )

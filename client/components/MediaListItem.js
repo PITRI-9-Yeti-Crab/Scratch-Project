@@ -9,16 +9,46 @@ function MediaListItem(props) {
 
     // display individual Media List items
 
+    const detailResults = {}
+
+  
     const moreInfoHandler = (e) => {
-        const genreOptions = {
-          method: 'GET',
-          url: 'https://online-movie-database.p.rapidapi.com/title/get-overview-details',
-          params: {tconst: props.imdbID, currentCountry: 'US'},
-          headers: {
-            'X-RapidAPI-Key': process.env.REACT_APP_FILM_API_KEY,
-            'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
-          }
-        };
+      const genreOptions = {
+        method: 'GET',
+        url: 'https://online-movie-database.p.rapidapi.com/title/get-overview-details',
+        params: {tconst: props.movie.api_id, currentCountry: 'US'},
+        headers: {
+          'X-RapidAPI-Key': process.env.REACT_APP_FILM_API_KEY,
+          'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+        }
+      };
+  
+      axios.request(genreOptions).then(function (response) {
+        console.log(response.data);
+        detailResults.genre = response.data.genres;
+        console.log('detailResultsWithGenres:', detailResults)
+  
+      }).catch(function (error) {
+        console.error(error);
+      });
+  
+      const directorOptions = {
+        method: 'GET',
+        url: 'https://online-movie-database.p.rapidapi.com/title/get-full-credits',
+        params: {tconst: props.movie.api_id},
+        headers: {
+          'X-RapidAPI-Key': process.env.REACT_APP_FILM_API_KEY,
+          'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+        }
+      };
+  
+      axios.request(directorOptions).then(function (response) {
+        console.log(response.data);
+        detailResults.director = response.data.crew.director[0].name;
+        console.log('detailResultsWithDirector:', detailResults)
+      }).catch(function (error) {
+        console.error(error);
+      });
     }
 
 
@@ -30,7 +60,7 @@ function MediaListItem(props) {
         <div className='MovieListBasics'>
           <h2>{props.movie.title}</h2>
           <h6>{props.movie.year}</h6>
-          <Modal_MoreInfo onClick={moreInfoHandler}></Modal_MoreInfo>
+          <Modal_MoreInfo getMoreInfo={moreInfoHandler} moreDetails={detailResults}></Modal_MoreInfo>
         </div>
         <div>
 
