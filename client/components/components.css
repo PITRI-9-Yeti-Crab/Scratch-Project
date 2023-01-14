@@ -55,11 +55,10 @@ main#home img.logo{
 main#about {
   background-image: url("../assets/images/clawb_bg-top_right.png");
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: right 0px top 50px;
+  background-position: right 0px top 0px;
 }
 
-main#about img{
+main#about img.icon{
   max-width: 400px;
 }
 
@@ -72,7 +71,22 @@ h3.next-link{
   text-align:right;
 }
 
-p.lead {
+#about p {
+  font-size: 2em;
+}
+
+
+#about li {
+  font-size: 2em;
+  margin: 0 0 0 1em;
+}
+
+#about p.lead {
   font-weight: bold;
   font-size: 2em;
+}
+
+#about p.megalead {
+  font-weight: normal;
+  font-size: 3em;
 }
