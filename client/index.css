@@ -48,6 +48,10 @@ h1,
   font-family: Bangers, Arial, Helvetica, sans-serif;
 }
 
+.navbar-brand {
+  font-size: 2em;
+
+}
 h1 {
   font-size: 4em;
 }

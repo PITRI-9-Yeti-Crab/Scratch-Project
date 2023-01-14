@@ -33,7 +33,7 @@ function Modal_APISearch() {
           url: 'https://online-movie-database.p.rapidapi.com/title/find',
           params: {q: textInput },
           headers: {
-            'X-RapidAPI-Key': '254a2ed010msh9089e065fc76542p1ab1cfjsn91b42fac04d9',
+            'X-RapidAPI-Key': process.env.REACT_APP_FILM_API_KEY,
             'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
           }
       };
