@@ -7,8 +7,10 @@ import Form from 'react-bootstrap/Form';
 
 import ResultsList from './ResultsList';
 
+import './components.css'
 
-function Modal_APISearch() {
+
+function Modal_APISearch(props) {
   const [show, setShow] = useState(false);
   const [lgShow, setLgShow] = useState(false);
 
@@ -44,19 +46,19 @@ function Modal_APISearch() {
 
           const filteredResults = results.filter(movie => movie.title && movie.image)
 
-          // expirimental
-          const trimmedResults = [];
+          // expirimental - not needed
+          // const trimmedResults = [];
 
-          for (let i=0; i<filteredResults.length; i++) {
-              trimmedResults.push({});
-              trimmedResults[i] = {
-                  title: filteredResults[i].title,
-                  api_id: filteredResults[i].id.slice(7),
-                  year: filteredResults[i].year,
-                  image: filteredResults[i].image.url
-              }
-          }
-          console.log('trimmedResults:', trimmedResults)
+          // for (let i=0; i<filteredResults.length; i++) {
+          //     trimmedResults.push({});
+          //     trimmedResults[i] = {
+          //         title: filteredResults[i].title,
+          //         api_id: filteredResults[i].id.slice(7),
+          //         year: filteredResults[i].year,
+          //         image: filteredResults[i].image.url
+          //     }
+          // }
+          // console.log('trimmedResults:', trimmedResults)
           // expirimental
           // must use setState to, well, set the state
           setApiResults(filteredResults)
@@ -73,8 +75,6 @@ function Modal_APISearch() {
   }
 
 
-
-
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -82,15 +82,16 @@ function Modal_APISearch() {
       </Button>
 
       <Modal
+        size="lg"
         show={show}
         onHide={handleClose}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Search API</Modal.Title>
+          <Modal.Title>Claw New Movies</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-        <h2>Search Results, Modal Body</h2>
+        {/* <h2>Search Results</h2> */}
 
         <Form  >
         <input className="form-control" type="text" placeholder="Search" aria-label="Search"
@@ -105,7 +106,7 @@ function Modal_APISearch() {
 
     <div>
 
-    <ResultsList results={apiResults}/>
+    <ResultsList updateMovies={props.updateMovies} results={apiResults}/>
 
     </div>
 
@@ -115,9 +116,9 @@ function Modal_APISearch() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          {/* <Button variant="primary" onClick={handleClose}>
             Save Changes
-          </Button>
+          </Button> */}
         </Modal.Footer>
 
       </Modal>

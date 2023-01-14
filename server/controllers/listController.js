@@ -46,7 +46,7 @@ const listController = {
       const values = [req.query.listId];
       // query created film list details
       const queryFilmList =
-        "SELECT id, title, image, year FROM films WHERE id IN (SELECT film_id FROM films_in_lists WHERE film_list_id = $1) ORDER BY title";
+        "SELECT id, title, image, year, api_id FROM films WHERE id IN (SELECT film_id FROM films_in_lists WHERE film_list_id = $1) ORDER BY title";
       const filmListDetails = await db.query(queryFilmList, values);
       res.locals.filmListDetails = filmListDetails.rows;
       return next();
