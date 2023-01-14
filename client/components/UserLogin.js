@@ -17,13 +17,13 @@ function UserLogin() {
       const response = await axios.post('/user/login', {email, password});
       console.log(response.data);
       //navigate to dash
-      navigate("/dash"); 
+      navigate("/dash");
     }
     catch(err){
       console.log(err);
     }
   }
-  
+
   const handleLoginState = (val, label) => {
     switch (label) {
       case "email":
@@ -37,29 +37,30 @@ function UserLogin() {
 
   return (
     <div className="login-form" >
-      <h4>Log In</h4>
-      <div>
+
         <Form className = "shadow p-3 mb-5 bg-white rounded" onSubmit = {handleLocalLogin}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+
+
+          <Button type="button" className = "btn btn-primary btn-lg btn-google"><img src="https://img.icons8.com/color/32/000000/google-logo.png" />Login with Google</Button>
+
+            <Form.Label>Login with Email</Form.Label>
             <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => handleLoginState(e.target.value, "email")}/>
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            {/* <Form.Label>Password</Form.Label> */}
             <Form.Control type="password" placeholder="Enter Password" value={password} onChange={(e) => handleLoginState(e.target.value)}/>
           </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-          <img src="https://img.icons8.com/color/16/000000/google-logo.png"></img>
-          <Button className = "btn btn-lg btn-google btn-block text-uppercase btn-outline">Login with Google</Button>
+
+          <div className="right-button">
+            <Button variant="primary" type="submit">
+              Login
+            </Button>
+          </div>
 
       </Form>
-     </div>
+
     </div>
 
   )

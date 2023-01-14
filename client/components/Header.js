@@ -16,7 +16,14 @@ function Header() {
 
 <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">Media Claw</Navbar.Brand>
+
+
+        <Navbar.Brand href="/">
+        <img src="/assets/images/mediaclaw-36x48.png" />
+        Media Claw
+        </Navbar.Brand>
+
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -31,9 +38,7 @@ function Header() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form>
-          <input className="form-control" type="text" placeholder="Search" aria-label="Search" />
-          </Form>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -11,7 +11,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function UserSignup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const navigate = useNavigate();
 
     // post new user credentials to db
@@ -42,22 +42,27 @@ function UserSignup() {
   return (
       <div className="signup-form">
       <Form className="shadow p-3 mb-5 bg-white rounded" onSubmit={handleLocalSignup}>
-          <h4>Signup</h4>
+          <h4>Signup with Email</h4>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+
           <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => handleSignUpState(e.target.value, "email")} />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            We'll never share your email.
           </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+
           <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => handleSignUpState(e.target.value)} />
+          <Form.Text className="text-muted">
+            Please make it unique. We are "Media Claw" not the NSA.
+          </Form.Text>
         </Form.Group>
+        <div className="right-button">
         <Button variant="primary" type="submit">
           Submit
         </Button>
+        </div>
       </Form>
       </div>
   )
