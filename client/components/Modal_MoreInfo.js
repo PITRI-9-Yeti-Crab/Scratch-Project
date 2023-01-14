@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import './components.css';
 
-function ModalDemo() {
+function Modal_MoreInfo() {
   const [show, setShow] = useState(false);
   const [lgShow, setLgShow] = useState(false);
 
@@ -11,8 +12,8 @@ function ModalDemo() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+      <Button className="MoreInfoButton" variant="primary" onClick={handleShow}>
+        More Info Modal
       </Button>
 
       <Modal
@@ -22,7 +23,10 @@ function ModalDemo() {
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo!
+        <Modal.Body>
+
+        <h4>More Info!</h4>
+
 
         </Modal.Body>
         <Modal.Footer>
@@ -30,7 +34,7 @@ function ModalDemo() {
             Close
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Add to List
           </Button>
         </Modal.Footer>
       </Modal>
@@ -38,4 +42,4 @@ function ModalDemo() {
   );
 }
 
-export default ModalDemo;
+export default Modal_MoreInfo;

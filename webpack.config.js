@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: "./client/index.js",
@@ -20,9 +21,11 @@ module.exports = {
     port: 8080,
     hot: true,
     proxy: {
-      //   "/workouts": "http://localhost:3000",
       "/user": "http://localhost:3000",
-      //   "/logout": "http://localhost:3000",
+      "/list": "http://localhost:3000",
+      "/film": "http://localhost:3000",
+      "/friend": "http://localhost:3000",
+      "/logout": "http://localhost:3000",
     },
   },
   module: {
@@ -52,5 +55,6 @@ module.exports = {
       title: "Development",
       template: "./client/index.html",
     }),
+    new Dotenv()
   ],
 };

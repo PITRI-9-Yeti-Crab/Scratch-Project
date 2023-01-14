@@ -1,3 +1,100 @@
+/*
+
+3D1766
+6F1AB6
+FF0032
+FF0032
+
+#F55C47
+#9FE6A0
+#4AA96C
+#564A4A
+
+#000000
+#AA14F0
+#BC8CF2
+#EEEEEE
+
+#472183
+#4B56D2
+#82C3EC
+#F1F6F5
+
+#14279B
+#3D56B2
+#5C7AEA
+#E6E6E6
+
+*/
+
+
+body{
+  background:#E6E6E6;
+  font-size: 16px;
+}
+
+nav.navbar {
+  background: #14279B !important;
+}
+
+main {
+  padding: 1em 2em;
+}
+
+
+h1,
+.navbar-brand {
+  color: #F55C47;
+  font-family: Bangers, Arial, Helvetica, sans-serif;
+}
+
+.navbar-brand {
+  font-size: 2.5em;
+
+}
 h1 {
-  color: red;
+  font-size: 4em;
+}
+
+h4 {
+  /* background-color: #212529; */
+  /* color: #fff; */
+  width: 100%;
+}
+
+.signup-form {
+  margin: 10% auto;
+  min-width:300px;
+  max-width: 500px;
+}
+
+.login-form {
+  margin: 10% auto;
+  min-width:300px;
+  max-width: 500px;
+}
+
+.btn-primary {
+  background: #5C7AEA;
+  border-color: #E6E6E6;
+}
+
+.btn-google {
+  width: 100%;
+  margin: 0 0 1em 0;
+}
+.btn-google img {
+  margin: 0 12px 4px 0;
+}
+
+.right-button {
+  width: 100%;
+  text-align: right;
+}
+
+
+img.mc-logo-home{
+  width: 500px;
+  height: auto;
+  margin: 0 auto;
 }

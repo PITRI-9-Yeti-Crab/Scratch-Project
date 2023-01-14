@@ -1,7 +1,9 @@
 import React from 'react';
 import Header from './Header';
-import Login from './Login';
+import UserLogin from './UserLogin';
+import UserSignup from './UserSignup';
 import ModalDemo from './ModalDemo';
+import Modal_Login from './Modal_Login';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -13,15 +15,21 @@ function Home() {
 
     <Header />
 
-    <h1>HOME</h1>
+    <main>
 
+    <h1>HOME!!</h1>
 
+      <p>A page with Public Info about MEDIA CLAW</p>
 
-    <Login />
+    <img src="/assets/images/mediaclaw-f55c47.png" className="mc-logo-home" />
 
+    <Modal_Login />
 
-    <ModalDemo />
+    {/* <UserLogin />
 
+    <UserSignup /> */}
+
+    </main>
     </>
   )
 }
