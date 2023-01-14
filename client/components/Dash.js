@@ -98,11 +98,11 @@ function Dash() {
 
     <Header />
     <main>
-    <h1>DASHBOARD</h1>
+    <h1>DASHBOARD!!</h1>
 
     <Modal_APISearch />
 
-    <Button onClick={getMovies}>Get Movies</Button>
+    <Button onClick={getMovies}>Get Your Movies</Button>
 
     <hr />
 

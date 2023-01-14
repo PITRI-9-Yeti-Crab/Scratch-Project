@@ -78,7 +78,7 @@ function Modal_APISearch() {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Launch API Search
+        Claw New Movies
       </Button>
 
       <Modal

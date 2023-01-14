@@ -6,7 +6,6 @@ function MediaList(props) {
     // get user's Media List from server
 
 
-
   return (
     <>
 

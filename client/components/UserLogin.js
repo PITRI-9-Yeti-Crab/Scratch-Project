@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
-
 function UserLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -33,7 +32,6 @@ function UserLogin() {
         setPassword(val);
     }
   };
-
 
   return (
     <div className="login-form" >

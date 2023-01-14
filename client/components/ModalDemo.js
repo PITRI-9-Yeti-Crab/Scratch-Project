@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Image from 'react-bootstrap/Image'
 
 function ModalDemo() {
   const [show, setShow] = useState(false);
@@ -25,7 +24,6 @@ function ModalDemo() {
         </Modal.Header>
         <Modal.Body>Woohoo!
 
-        <img src='/assets/img/0b162244d5921492df29b7d13c1a.jpeg' className='img-fluid shadow-4'  />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
