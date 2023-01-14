@@ -15,7 +15,6 @@
     max-height: 200px;
 }
 
-
 .mediaListItem {
   display: flex;
   max-width: 75%;
@@ -34,6 +33,14 @@
 }
 
 
-/* .search-modal {
-  min-width: 75%;
-} */
+main#home img.logo{
+  width: 500px;
+  height: auto;
+  margin: 0 auto;
+}
+
+
+
+main#about img.logo{
+  max-width: 200px;
+}

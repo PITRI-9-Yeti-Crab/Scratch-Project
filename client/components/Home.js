@@ -15,13 +15,13 @@ function Home() {
 
     <Header />
 
-    <main>
+    <main id="home">
 
     <h1>HOME!!</h1>
 
       <p>A page with Public Info about MEDIA CLAW</p>
 
-    <img src="/assets/images/mediaclaw-f55c47.png" className="mc-logo-home" />
+    <img src="/assets/images/mediaclaw-f55c47.png" className="logo" />
 
     <Modal_Login />
 

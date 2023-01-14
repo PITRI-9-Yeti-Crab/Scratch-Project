@@ -16,13 +16,13 @@ function AboutProblem() {
 
     <Header />
 
-    <main>
+    <main id="about">
 
     <h1>About the Problem!!</h1>
 
       <p>A page with Public Info about MEDIA CLAW</p>
 
-    <img src="/assets/images/mediaclaw-f55c47.png" className="mc-logo-home" />
+    <img src="/assets/images/mediaclaw-f55c47.png" className="logo" />
 
 
     </main>
