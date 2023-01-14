@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Header from './Header';
-import UserLogin from './UserLogin';
-import ModalDemo from './ModalDemo';
-import ResultsList from './ResultsList';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+import Header from './Header';
+import UserLogin from './UserLogin';
+import ModalDemo from './ModalDemo';
+import ResultsList from './ResultsList';
+import MediaList from './MediaList';
+import Modal_APISearch from './Modal_APISearch';
 
 import './components.css'
 
@@ -70,17 +72,6 @@ function Dash() {
         // setApiResults([]);
     }
 
-    // show list of search results
-        // add search results to state
-        // add state to individual components
-        // populate list with state
-
-    // allow user to select
-        // view details
-        // add to list
-
-
-
   return (
     <>
 
@@ -88,22 +79,25 @@ function Dash() {
 
     <h1>DASHBOARD</h1>
 
-    <ModalDemo />
+    <Modal_APISearch />
 
     <hr />
 
-    <Form  >
+    {/* <Form  >
         <input className="form-control" type="text" placeholder="Search" aria-label="Search"
-         value={textInput} onChange={textInputHandler}
+         value={textInput} onChange={textInputHandler} onSubmit={submitHandler}
         />
-        <Button variant="primary" onClick={submitHandler}>
+        <Button variant="primary"
+            onClick={submitHandler}
+        >
             Submit
         </Button>
-    </Form>
+    </Form> */}
+
 
     <div>
 
-    <ResultsList results={apiResults}/>
+        <MediaList />
 
     </div>
 

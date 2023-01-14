@@ -1,11 +1,21 @@
-.ResultBox {
+.ResultsBox {
   display: flex;
   min-width: 90%;
   border: 2px solid purple;
 }
 
-.ResultListButton {
+.ResultsListButton {
   height: 50px;
   border: 2px solid black;
   margin: 10px;
+}
+
+.ResultsImage {
+    max-width: auto;
+    max-height: 200px;
+}
+
+
+.mediaListItem {
+    border: 2px solid rgb(170, 143, 143);
 }

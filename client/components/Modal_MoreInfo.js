@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Image from 'react-bootstrap/Image'
 import './components.css';
 
-function FilmInfoModal() {
+function Modal_MoreInfo() {
   const [show, setShow] = useState(false);
   const [lgShow, setLgShow] = useState(false);
 
@@ -13,7 +13,7 @@ function FilmInfoModal() {
 
   return (
     <>
-      <Button className="ResultListButton" variant="primary" onClick={handleShow}>
+      <Button className="MoreInfoButton" variant="primary" onClick={handleShow}>
         More Info Modal
       </Button>
 
@@ -24,9 +24,11 @@ function FilmInfoModal() {
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo!
+        <Modal.Body>
 
-        <img src='/assets/img/0b162244d5921492df29b7d13c1a.jpeg' className='img-fluid shadow-4'  />
+        <h4>More Info!</h4>
+
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -41,4 +43,4 @@ function FilmInfoModal() {
   );
 }
 
-export default FilmInfoModal;
+export default Modal_MoreInfo;
