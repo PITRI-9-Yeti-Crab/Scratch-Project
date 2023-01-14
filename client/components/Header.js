@@ -19,15 +19,14 @@ function Header() {
 
 
         <Navbar.Brand href="/">
-        <img src="/assets/images/mediaclaw-36x48.png" />
-        Media Claw
+          <img src="/assets/images/mediaclaw-36x48.png" />
+          Media Claw!!
         </Navbar.Brand>
 
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/dash">Dash (remove link)</Nav.Link>
             <NavDropdown title="About" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">About the Project</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Technologies Used</NavDropdown.Item>
