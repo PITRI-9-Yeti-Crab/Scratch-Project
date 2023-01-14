@@ -4,7 +4,7 @@ const passport = require("passport");
 const session = require("express-session");
 const cors = require("cors");
 require("./config/passport");
-
+require("./config/passportGoogleStrategy");
 const userRoutes = require("./routes/user");
 const listRoutes = require("./routes/filmList");
 const filmRoutes = require("./routes/film");
@@ -13,7 +13,7 @@ const friendRoutes = require("./routes/friend");
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
 //configure express session
 app.use(

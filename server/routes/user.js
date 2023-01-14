@@ -14,21 +14,21 @@ router.post(
     failureRedirect: "user/login/failure",
     failureMessage: true,
     //successRedirect: "user/login/success"
-  }), 
+  }),
   (req, res) => {
     res.send("login success!");
   }
 );
-// //rediret if login succeeds 
+// //rediret if login succeeds
 
 // router.get("login/success",(req, res) => {
 //   console.log("login success", req.user);
 //   res.status(200).json({ user: req.user });
-// }) 
+// })
 
 // signup route
-router.post("/signup", userController.signup, (req, res)=> {
-  res.json(res.locals.user)
+router.post("/signup", userController.signup, (req, res) => {
+  res.json(res.locals.user);
 });
 
 //log user out
@@ -36,20 +36,30 @@ router.get("/logout", (req, res, next) => {
   req.logout();
   res.redirect();
 });
-
+// cors(),
 // auth with google+
 router.get(
   "/google",
-  cors(),
   passport.authenticate("google", {
     scope: ["email", "profile"],
   })
 );
 
-// callback route for google to redirect
-router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
-  console.log("you reached the redirect URI");
-  res.redirect("/");
+// failure callback
+router.get("/auth/google/failure", (req, res) => {
+  res.status(401).json({
+    success: false,
+    message: "failure",
+  });
 });
+
+// callback route for google to redirect
+router.get(
+  "/google/redirect",
+  passport.authenticate("google", {
+    successRedirect: process.env.CLIENT_URL,
+    failureRedirect: "/google/failure",
+  })
+);
 
 module.exports = router;
