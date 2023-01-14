@@ -10,9 +10,17 @@ router.get("/shared", filmListController.getSharedListNames, (req, res) => {
   res.status(200).json(res.locals.sharedLists);
 });
 
-router.get("/details", filmListController.getListDetails, (req, res) => {
-  res.status(200).json(res.locals.filmListDetails);
-});
+router.get(
+  "/details",
+  (req, res, next) => {
+    console.log(req.user);
+    next();
+  },
+  filmListController.getListDetails,
+  (req, res) => {
+    res.status(200).json(res.locals.filmListDetails);
+  }
+);
 
 router.post("/", filmListController.createList, (req, res) => {
   res.status(200).json(res.locals.filmListName);
