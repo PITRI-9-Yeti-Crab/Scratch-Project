@@ -20,10 +20,20 @@ function AboutProblem() {
 
     <h1>About the Problem!!</h1>
 
-      <p>A page with Public Info about MEDIA CLAW</p>
+    <p className="lead">The Problem is Media.</p>
 
-    <img src="/assets/images/mediaclaw-f55c47.png" className="logo" />
+    <p className="lead">How do you keep track of it all??</p>
 
+
+    <h2>Solution!!</h2>
+
+    <img src="/assets/images/icon-conveyor-claw.png" className="icon" />
+    <p className="lead">GRAB the Media Info</p>
+
+    <img src="/assets/images/icon-conveyor-load.png" className="icon" />
+    <p className="lead">and PUT it in YOUR OWN LIST!!</p>
+
+    <h3 className="next-link">Demo!! then <a href="/about-tech">Tech</a></h3>
 
     </main>
     </>

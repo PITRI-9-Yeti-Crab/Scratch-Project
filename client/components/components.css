@@ -32,15 +32,47 @@
   margin-left: 10px;
 }
 
+.login-button-box{
+  background: #F55C47;
+  width: 150px;
+  height: 150px;
+}
+.login-button{
+  border: 20px solid #F55C47 !important;
+  margin-left: -110px;
+}
 
 main#home img.logo{
   width: 500px;
   height: auto;
   margin: 0 auto;
+
 }
 
 
+/* ABOUT PAGES */
+
+main#about {
+  background-image: url("../assets/images/clawb_bg-top_right.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right 0px top 50px;
+}
+
+main#about img{
+  max-width: 400px;
+}
 
 main#about img.logo{
   max-width: 200px;
+  margin-left: 80px;
+}
+
+h3.next-link{
+  text-align:right;
+}
+
+p.lead {
+  font-weight: bold;
+  font-size: 2em;
 }
