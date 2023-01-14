@@ -17,5 +17,18 @@
 
 
 .mediaListItem {
-    border: 2px solid rgb(170, 143, 143);
+  display: flex;
+  max-width: 75%;
+  border: 2px solid rgb(194, 186, 186);
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.MediaList {
+  display: flex;
+  flex-direction: column;
+}
+
+.MovieListBasics {
+  margin-left: 10px;
 }

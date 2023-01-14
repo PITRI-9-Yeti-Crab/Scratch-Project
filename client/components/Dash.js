@@ -17,6 +17,7 @@ function Dash() {
 
     const [ textInput, setTextInput ] = useState("");
     const [ apiResults, setApiResults ] = useState([]);
+    const [ movieList, setMovieList ] = useState([]);
 
     // text handler - catches what's typed
     const textInputHandler = (e) => {
@@ -33,7 +34,7 @@ function Dash() {
             url: 'https://online-movie-database.p.rapidapi.com/title/find',
             params: {q: textInput },
             headers: {
-              'X-RapidAPI-Key': '254a2ed010msh9089e065fc76542p1ab1cfjsn91b42fac04d9',
+              'X-RapidAPI-Key': process.env.REACT_APP_FILM_API_KEY,
               'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
             }
         };
@@ -72,6 +73,26 @@ function Dash() {
         // setApiResults([]);
     }
 
+    function getMovies() {
+
+        const getListOptions = {
+            method: 'GET',
+            url: 'http://localhost:3000/list/details',
+            params: {listId: 1}
+        }
+
+        axios.request(getListOptions)
+        .then(function (response) {
+            console.log('response:', response.data);
+            setMovieList(response.data);
+        })
+        .catch(function (error) {
+            console.error(error);
+        })
+    }
+
+
+
   return (
     <>
 
@@ -81,23 +102,13 @@ function Dash() {
 
     <Modal_APISearch />
 
+    <Button onClick={getMovies}>Get Movies</Button>
+
     <hr />
-
-    {/* <Form  >
-        <input className="form-control" type="text" placeholder="Search" aria-label="Search"
-         value={textInput} onChange={textInputHandler} onSubmit={submitHandler}
-        />
-        <Button variant="primary"
-            onClick={submitHandler}
-        >
-            Submit
-        </Button>
-    </Form> */}
-
 
     <div>
 
-        <MediaList />
+        <MediaList className='MediaList' movies={movieList}/>
 
     </div>
 

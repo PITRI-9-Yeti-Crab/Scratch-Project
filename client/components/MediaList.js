@@ -8,14 +8,16 @@ function MediaList(props) {
 
 
   return (
-  <>
+    <>
 
-  <h3>User's Media List Title (in component)</h3>
+      <div>
+        {props.movies.map(movie => <MediaListItem
+          movie={movie}
+        >
+        </MediaListItem>)}
+      </div>
 
-  <MediaListItem></MediaListItem>
-
-
-  </>
+    </>
   )
 }
 
