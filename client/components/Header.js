@@ -32,7 +32,7 @@ function Header() {
               <NavDropdown.Item href="about-problem">What's the Problem?</NavDropdown.Item>
               <NavDropdown.Item href="about-tech">Technologies & Challenges</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="dev">
+              <NavDropdown.Item href="dash" className="text-muted small">
                 Secret Link, Don't Look
               </NavDropdown.Item>
             </NavDropdown>
