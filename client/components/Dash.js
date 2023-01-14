@@ -76,7 +76,7 @@ function Dash() {
     <>
 
     <Header />
-
+    <main>
     <h1>DASHBOARD</h1>
 
     <Modal_APISearch />
@@ -101,6 +101,7 @@ function Dash() {
 
     </div>
 
+    </main>
     </>
   )
 }
